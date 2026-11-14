@@ -7,29 +7,30 @@
 
 :root {
   --font-size: 16px;
-  --background: #F6EFE4;
-  --foreground: #1C1008;
+  --background: #FFFFFF;
+  --foreground: #0F172A;
   --card: #FFFFFF;
-  --card-foreground: #1C1008;
+  --card-foreground: #0F172A;
   --popover: #FFFFFF;
-  --popover-foreground: #1C1008;
-  --primary: #D94830;
+  --popover-foreground: #0F172A;
+  --primary: #F15A2B;
   --primary-foreground: #FFFFFF;
-  --secondary: #EDE3D6;
-  --secondary-foreground: #1C1008;
-  --muted: #E8DDD0;
-  --muted-foreground: #7A6454;
-  --accent: #D94830;
+  --secondary: #F8FAFC;
+  --secondary-foreground: #0F172A;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  --accent: #F15A2B;
   --accent-foreground: #FFFFFF;
-  --destructive: #c0392b;
+  --destructive: #DC2626;
   --destructive-foreground: #ffffff;
-  --border: rgba(28, 16, 8, 0.12);
+  --border: rgba(15, 23, 42, 0.1);
   --input: transparent;
-  --input-background: #EDE3D6;
-  --switch-background: #c5b8aa;
+  --input-background: #F1F5F9;
+  --switch-background: #CBD5E1;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #D94830;
+  --ring: #F15A2B;
+  --navy: #0F172A;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -122,7 +123,7 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-serif: var(--font-playfair), Georgia, serif;
+  --color-navy: var(--navy);
   --font-sans: var(--font-inter), system-ui, sans-serif;
 }
 
@@ -142,7 +143,7 @@
   h1,
   h2,
   h3 {
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
   }
 
   h1 {
@@ -188,6 +189,11 @@
   }
 }
 
-.font-serif-heading {
-  font-family: var(--font-serif);
+.bg-dot-grid {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(241, 90, 43, 0.12), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 80% 60%, rgba(15, 23, 42, 0.03), transparent 50%),
+    radial-gradient(circle, rgba(15, 23, 42, 0.07) 1px, transparent 1px);
+  background-size: auto, auto, 24px 24px;
 }

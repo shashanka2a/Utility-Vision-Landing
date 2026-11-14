@@ -8,7 +8,7 @@ export function ContactPage() {
   return (
     <div className="bg-background min-h-screen">
       {/* Header */}
-      <div className="bg-[#1C1008] text-white py-20">
+      <div className="bg-navy text-white py-20">
         <div className="max-w-4xl mx-auto px-6">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -22,7 +22,7 @@ export function ContactPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.06 }}
-            className="text-4xl md:text-5xl leading-tight font-serif-heading font-bold"
+            className="text-4xl md:text-5xl leading-tight font-bold"
             
           >
             Get in touch
@@ -111,7 +111,7 @@ export function ContactPage() {
               onSubmit={(e) => e.preventDefault()}
             >
               <p
-                className="text-lg text-foreground font-serif-heading font-semibold"
+                className="text-lg text-foreground font-semibold"
                 
               >
                 Send a message

@@ -50,7 +50,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
         className="w-full flex items-center justify-between py-5 text-left gap-4 group"
       >
         <span
-          className="text-sm text-foreground group-hover:text-primary transition-colors font-serif-heading font-medium"
+          className="text-sm text-foreground group-hover:text-primary transition-colors font-medium"
           
         >
           {q}
@@ -85,7 +85,7 @@ export function SupportPage() {
   return (
     <div className="bg-background min-h-screen">
       {/* Hero */}
-      <div className="bg-[#1C1008] text-white py-20">
+      <div className="bg-navy text-white py-20">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -99,7 +99,7 @@ export function SupportPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.06 }}
-            className="text-4xl md:text-5xl mb-4 leading-tight font-serif-heading font-bold"
+            className="text-4xl md:text-5xl mb-4 leading-tight font-bold"
             
           >
             How can we help?
@@ -136,7 +136,7 @@ export function SupportPage() {
                 className="bg-card border border-border rounded-sm p-5 flex flex-col gap-2 hover:border-primary/30 hover:shadow-sm transition-all duration-250 group block"
               >
                 <Icon size={17} className="text-primary" strokeWidth={1.5} />
-                <p className="text-sm text-foreground font-serif-heading font-medium">
+                <p className="text-sm text-foreground font-medium">
                   {label}
                 </p>
                 <p className="text-xs text-muted-foreground">{desc}</p>
@@ -148,7 +148,7 @@ export function SupportPage() {
         {/* FAQ */}
         <Reveal className="mb-16">
           <h2
-            className="text-2xl text-foreground mb-6 font-serif-heading font-semibold"
+            className="text-2xl text-foreground mb-6 font-semibold"
             
           >
             Common questions
@@ -164,9 +164,9 @@ export function SupportPage() {
 
         {/* Contact */}
         <Reveal>
-          <div className="bg-[#1C1008] rounded-sm p-10 text-center">
+          <div className="bg-navy rounded-sm p-10 text-center">
             <h2
-              className="text-2xl text-white mb-2 font-serif-heading font-semibold"
+              className="text-2xl text-white mb-2 font-semibold"
               
             >
               Still need help?

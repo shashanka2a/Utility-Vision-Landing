@@ -1,20 +1,48 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-[#1C1008] text-white/60 py-14">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+    <footer className="bg-navy text-white/60">
+      <div className="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center border-b border-white/10">
+        <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] text-white font-bold tracking-[-0.03em] leading-[1.1] mb-4">
+          Ready to have{" "}
+          <span className="text-primary">seamless field data tracking?</span>
+        </h2>
+        <p className="text-[15px] text-white/50 mb-8 max-w-lg mx-auto leading-relaxed">
+          Utility Field Intelligence Software built for solar asset operators, right-of-way contractors, and utility stakeholders.
+        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="https://app.utilityvision.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-primary text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors shadow-[0_8px_24px_rgba(241,90,43,0.28)]"
+          >
+            Start Free
+          </a>
+          <a
+            href="https://apps.apple.com/us/app/utilityvision/id6776099498"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-white/50 hover:text-white transition-colors font-medium"
+          >
+            Get the Field App
+          </a>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-2 md:grid-cols-4 gap-8">
         <div className="col-span-2 md:col-span-1">
-          <Link href="/" className="flex items-center gap-2 mb-3 group">
-            <span className="inline-flex items-center justify-center w-7 h-7 rounded-sm bg-primary transition-transform duration-200 group-hover:scale-105">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <rect x="2" y="2" width="5" height="5" fill="white" rx="0.5" />
-                <rect x="9" y="2" width="5" height="5" fill="white" rx="0.5" opacity="0.6" />
-                <rect x="2" y="9" width="5" height="5" fill="white" rx="0.5" opacity="0.6" />
-                <rect x="9" y="9" width="5" height="5" fill="white" rx="0.5" />
-              </svg>
-            </span>
-            <span className="font-serif-heading text-white text-base font-semibold">
+          <Link href="/" className="flex items-center gap-2.5 mb-3 group">
+            <Image
+              src="/icon.png"
+              alt="Utility Vision"
+              width={28}
+              height={28}
+              className="rounded-md transition-transform duration-200 group-hover:scale-105"
+            />
+            <span className="text-white text-base font-semibold tracking-tight">
               Utility Vision
             </span>
           </Link>
@@ -27,9 +55,8 @@ export function Footer() {
           {
             heading: "Product",
             links: [
+              { label: "Experiences", href: "/#how-it-works" },
               { label: "Features", href: "/#features" },
-              { label: "How It Works", href: "/#how-it-works" },
-              { label: "Integrations", href: "/#integrations" },
             ],
           },
           {
@@ -66,7 +93,7 @@ export function Footer() {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-3">
+      <div className="max-w-7xl mx-auto px-6 pb-8 pt-2 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-3">
         <p className="text-xs">© 2026 Utility Vision, Inc.</p>
         <div className="flex gap-5 text-xs">
           <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>

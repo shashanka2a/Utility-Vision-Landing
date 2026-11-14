@@ -355,7 +355,7 @@ const sections: Section[] = [
 function PolicySection({ section }: { section: Section }) {
   return (
     <div id={section.id} className="mb-12 scroll-mt-24">
-      <h2 className="text-xl text-foreground mb-4 pb-3 border-b border-border font-serif-heading font-semibold">
+      <h2 className="text-xl text-foreground mb-4 pb-3 border-b border-border font-semibold">
         {section.title}
       </h2>
 
@@ -405,7 +405,7 @@ export function PrivacyPage() {
       <div className="bg-secondary/40 border-b border-border py-16">
         <Reveal className="max-w-4xl mx-auto px-6">
           <p className="text-xs uppercase tracking-widest text-primary mb-3 font-medium">Legal</p>
-          <h1 className="text-4xl md:text-5xl text-foreground mb-3 leading-tight font-serif-heading font-bold">
+          <h1 className="text-4xl md:text-5xl text-foreground mb-3 leading-tight font-bold">
             Privacy Notice
           </h1>
           <p className="text-sm text-muted-foreground">

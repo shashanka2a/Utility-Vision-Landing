@@ -1,23 +1,85 @@
 "use client";
 
 import {
-  FileText, Camera, MessageSquare, CheckSquare,
-  BarChart2, Package, Shield, ClipboardList,
-  Megaphone, AlertTriangle, LineChart,
-  HelpCircle, Folder, FormInput, Cloud, ChevronRight, Wrench
+  FileText, Tags,
+  Monitor, Smartphone, ShieldCheck, ArrowRight, CircleCheck
 } from "lucide-react";
 import { motion } from "motion/react";
 import { Reveal, StaggerReveal, StaggerItem } from "@/components/Reveal";
 
-const integrations = [
-  { name: "Salesforce", color: "#00A1E0" },
-  { name: "QuickBooks", color: "#2CA01C" },
-  { name: "SAP", color: "#0070F2" },
-  { name: "ArcGIS", color: "#56A0D3" },
-  { name: "Microsoft 365", color: "#D83B01" },
-  { name: "Procore", color: "#F05A22" },
-  { name: "ServiceMax", color: "#E44B24" },
-  { name: "Trimble", color: "#005DAA" },
+const experiences = [
+  {
+    id: "01",
+    label: "Crew Mobile App",
+    title: "The Field App",
+    description:
+      "Complete JSA Pre-Briefs with digital crew signatures, log daily acreage and chemicals, sync categorized field notes, and submit machine checklists from the field.",
+    features: [
+      {
+        title: "JSA & Digital Crew Signatures",
+        detail: "GPS lock, Mission Brief, Hazard Analysis, Nearest Hospital, and touchscreen crew sign-off.",
+      },
+      {
+        title: "Daily Metrics, Notes & Chemicals",
+        detail: "Submitted metrics cards, cloud-synced field notes, and Spraying or Wicking chemical inputs.",
+      },
+      {
+        title: "Site Survey & Machine Checklists",
+        detail: "End-of-day safety verification and skid steer or ASV fluid level inspections.",
+      },
+    ],
+    cta: "Launch Field App Demo",
+    href: "https://apps.apple.com/us/app/utilityvision/id6776099498",
+    icon: Smartphone,
+  },
+  {
+    id: "02",
+    label: "Operations Command",
+    title: "Management Dashboard",
+    description:
+      "Monitor real-time field submissions, audit chemical application totals, resolve open site observations, and review portfolio-wide KPIs.",
+    features: [
+      {
+        title: "Executive Insights & Momentum",
+        detail: "Track Total Logs, Key Metrics, Visual Checks, and Safety Issues at a glance.",
+      },
+      {
+        title: "Open Observations Workflow",
+        detail: "Track Worsening or Unchanged site issues and mark them resolved in one click.",
+      },
+      {
+        title: "Real-Time Activity & Gallery",
+        detail: "Live stream of signed reports, weather stamps, and field photo evidence.",
+      },
+    ],
+    cta: "Launch Management Dashboard Demo",
+    href: "https://app.utilityvision.app/",
+    icon: Monitor,
+  },
+  {
+    id: "03",
+    label: "Asset Owner Portal",
+    title: "The Client Portal",
+    description:
+      "Give utility and solar asset owners a dedicated portal to inspect KMZ panel mapping, track wicking, spraying, and mowing schedules, and monitor the Site Health Watchlist.",
+    features: [
+      {
+        title: "Overview & Maintenance Schedule",
+        detail: "Contract details, Last and Next Wicking, Spraying and Mowing timelines, and direct PM messaging.",
+      },
+      {
+        title: "Interactive KMZ Project Map",
+        detail: "Toggle Boundary, Panel Block Labels, Inverter pins, and GPS Observation markers.",
+      },
+      {
+        title: "Site Health Watchlist",
+        detail: "Filter Open or Resolved hazards and invasive vegetation by species.",
+      },
+    ],
+    cta: "Launch Client Portal Demo",
+    href: "https://client.utilityvision.app/",
+    icon: ShieldCheck,
+  },
 ];
 
 function Label({ children }: { children: React.ReactNode }) {
@@ -30,133 +92,208 @@ function SectionHeading({ label, title, sub, wide }: { label: string; title: str
   return (
     <Reveal className={`mb-12 ${wide ? "max-w-2xl" : "max-w-xl"}`}>
       <Label>{label}</Label>
-      <h2
-        className="text-3xl md:text-4xl text-foreground leading-tight mb-3 font-serif-heading font-semibold"
-        
-      >
+      <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] text-navy leading-[1.1] mb-3 font-bold tracking-[-0.03em]">
         {title}
       </h2>
-      {sub && <p className="text-sm text-muted-foreground leading-relaxed">{sub}</p>}
+      {sub && <p className="text-[15px] text-muted-foreground leading-relaxed">{sub}</p>}
     </Reveal>
-  );
-}
-
-interface CardProps {
-  icon: React.ElementType;
-  title: string;
-  description: string;
-  iconColor?: string;
-  badge?: string;
-}
-
-function Card({ icon: Icon, title, description, iconColor = "text-primary", badge }: CardProps) {
-  return (
-    <motion.div
-      whileHover={{ y: -3, boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}
-      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-card h-full rounded-sm p-6 border border-border cursor-default flex flex-col gap-4"
-    >
-      <motion.div
-        whileHover={{ scale: 1.15 }}
-        transition={{ duration: 0.2 }}
-        className={`w-9 h-9 rounded-sm flex items-center justify-center bg-primary/8 ${iconColor}`}
-      >
-        <Icon size={17} strokeWidth={1.5} />
-      </motion.div>
-      <div className="flex flex-col gap-1.5 flex-1">
-        <div className="flex items-center gap-2">
-          <p className="text-foreground text-sm font-serif-heading font-medium">
-            {title}
-          </p>
-          {badge && (
-            <span className="text-[10px] bg-primary/10 text-primary border border-primary/20 px-1.5 py-0.5 rounded-full leading-none shrink-0">
-              {badge}
-            </span>
-          )}
-        </div>
-        <p className="text-xs text-muted-foreground leading-relaxed">{description}</p>
-      </div>
-    </motion.div>
   );
 }
 
 export function HomePage() {
   return (
     <div className="bg-background">
-      {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 pt-24 pb-20 text-center overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="inline-flex items-center gap-2 border border-primary/40 text-primary text-xs px-4 py-1.5 rounded-full mb-7 uppercase tracking-widest"
-        >
-          Vegetation Management Software
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className="text-4xl md:text-5xl lg:text-6xl text-foreground max-w-3xl mx-auto leading-[1.15] mb-3 font-serif-heading font-bold"
-          
-        >
-          Clear visibility into every acre,{" "}
-          <em className="text-primary" style={{ fontStyle: "italic" }}>
-            right from the field
-          </em>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.13, ease: [0.22, 1, 0.36, 1] }}
-          className="text-xs uppercase tracking-widest text-muted-foreground mb-8"
-        >
-          Operational clarity without the guesswork or paperwork
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-2xl mx-auto border border-border rounded-sm px-8 py-6 bg-secondary/30 mb-9"
-        >
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            From the field, to the office, to the client in real time. Utility Vision takes the
-            friction out of vegetation management. Log physical data and site photos instantly to power
-            a dynamic client portal that displays real-time progress, historical treatment data, and
-            upcoming scheduling information.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.26, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <motion.a
-            href="#"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="bg-primary text-primary-foreground px-7 py-3 rounded-sm text-sm transition-colors hover:bg-primary/90"
+      {/* Hero — full viewport */}
+      <section className="relative bg-dot-grid overflow-hidden min-h-[calc(100dvh-4rem)] flex flex-col">
+        <div className="flex-1 flex flex-col items-center justify-center max-w-5xl mx-auto px-6 py-16 md:py-20 text-center w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-flex items-center gap-2 bg-primary/[0.08] ring-1 ring-primary/15 text-primary text-[11px] font-semibold px-3.5 py-1.5 rounded-full mb-8 uppercase tracking-[0.14em]"
           >
-            Start Free
-          </motion.a>
-          <motion.a
-            href="#features"
-            whileHover={{ x: 3 }}
-            transition={{ duration: 0.15 }}
-            className="flex items-center gap-1.5 text-sm text-foreground hover:text-primary transition-colors"
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary" />
+            </span>
+            Utility Field Intelligence Software
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
+            className="text-[2.35rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] text-navy max-w-4xl mx-auto leading-[1.05] mb-6 font-bold tracking-[-0.03em]"
           >
-            See features <ChevronRight size={13} />
-          </motion.a>
+            Track Every Acre, Site &amp; Compliance Log in{" "}
+            <span className="text-primary">Real Time.</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="text-[15px] sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10 tracking-[-0.01em]"
+          >
+            Utility Vision unifies a mobile{" "}
+            <strong className="text-navy font-semibold">Field App</strong>,{" "}
+            <strong className="text-navy font-semibold">Management Dashboard</strong>, and a live{" "}
+            <strong className="text-navy font-semibold">Client Portal</strong>, all built for field
+            operation teams managing Utility Assets.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2.5 mb-14"
+          >
+            <motion.a
+              href="https://app.utilityvision.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground h-11 px-5 rounded-full text-[13px] font-semibold hover:bg-primary/90 transition-colors shadow-[0_8px_28px_rgba(241,90,43,0.32)]"
+            >
+              <Monitor size={15} strokeWidth={2} />
+              Interactive Dashboard Demo
+              <ArrowRight size={14} strokeWidth={2.25} />
+            </motion.a>
+            <motion.a
+              href="https://apps.apple.com/us/app/utilityvision/id6776099498"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 bg-navy text-white h-11 px-5 rounded-full text-[13px] font-semibold hover:bg-navy/90 transition-colors"
+            >
+              <Smartphone size={15} strokeWidth={2} />
+              Try Field App Demo
+            </motion.a>
+            <motion.a
+              href="https://client.utilityvision.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm text-navy ring-1 ring-border h-11 px-5 rounded-full text-[13px] font-semibold hover:ring-navy/25 transition-all"
+            >
+              <ShieldCheck size={15} strokeWidth={2} />
+              Preview Client Portal
+            </motion.a>
+          </motion.div>
+
+          <motion.ul
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.26, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-7 gap-y-3"
+          >
+            {[
+              "Offline-First Mobile Crew Logging",
+              "GPS Invasive Species & Hazard Pinning",
+              "One-Click Signed Daily PDF Reports",
+            ].map((item) => (
+              <li key={item} className="flex items-center gap-2 text-[13px] text-muted-foreground font-medium">
+                <CircleCheck size={15} className="text-primary shrink-0" strokeWidth={2} />
+                {item}
+              </li>
+            ))}
+          </motion.ul>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.6 }}
+          className="pb-8 flex justify-center"
+        >
+          <a
+            href="#how-it-works"
+            className="group flex flex-col items-center gap-2 text-muted-foreground/70 hover:text-primary transition-colors"
+            aria-label="Scroll to experiences"
+          >
+            <span className="text-[10px] uppercase tracking-[0.2em] font-medium">Explore</span>
+            <span className="w-5 h-8 rounded-full ring-1 ring-current/30 flex items-start justify-center p-1.5">
+              <motion.span
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                className="w-1 h-1.5 rounded-full bg-current"
+              />
+            </span>
+          </a>
         </motion.div>
       </section>
 
-      {/* Section 1: Progress Reporting */}
-      <section id="features" className="bg-secondary/40 py-24">
+      {/* Three Integrated Experiences */}
+      <section id="how-it-works" className="py-24 md:py-28 bg-secondary/40">
+        <div className="max-w-7xl mx-auto px-6">
+          <Reveal className="max-w-3xl mx-auto text-center mb-14 md:mb-16">
+            <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold mb-4">
+              Three Integrated Experiences · One Unified Platform
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] text-navy font-bold tracking-[-0.03em] leading-[1.1] mb-4">
+              Built for Every Role in Utility Field Intelligence
+            </h2>
+            <p className="text-[15px] text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              Open any of the three interactive module previews below to try the live interface for field crews, operations managers, and utility clients.
+            </p>
+          </Reveal>
+
+          <StaggerReveal className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            {experiences.map((mod) => {
+              const Icon = mod.icon;
+              return (
+                <StaggerItem key={mod.id} className="flex">
+                  <motion.article
+                    whileHover={{ y: -4 }}
+                    transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                    className="flex flex-col w-full rounded-2xl bg-card ring-1 ring-border p-6 md:p-7 hover:ring-primary/25 hover:shadow-[0_12px_32px_rgba(15,23,42,0.06)] transition-all"
+                  >
+                    <div className="flex items-center justify-between mb-5">
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
+                        {mod.id} / {mod.label}
+                      </span>
+                      <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-primary/10 text-primary">
+                        <Icon size={17} strokeWidth={1.75} />
+                      </span>
+                    </div>
+
+                    <h3 className="text-xl text-navy font-bold tracking-tight mb-3">{mod.title}</h3>
+                    <p className="text-[13px] text-muted-foreground leading-relaxed mb-6">{mod.description}</p>
+
+                    <ul className="space-y-4 mb-8 flex-1">
+                      {mod.features.map((f) => (
+                        <li key={f.title} className="flex gap-3">
+                          <CircleCheck size={15} className="text-primary shrink-0 mt-0.5" strokeWidth={2} />
+                          <div>
+                            <p className="text-[13px] font-semibold text-navy leading-snug mb-0.5">{f.title}</p>
+                            <p className="text-[12px] text-muted-foreground leading-relaxed">{f.detail}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <a
+                      href={mod.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 h-11 px-4 rounded-full bg-primary text-white text-[13px] font-semibold hover:bg-primary/90 transition-colors shadow-[0_8px_24px_rgba(241,90,43,0.28)]"
+                    >
+                      {mod.cta}
+                      <ArrowRight size={14} strokeWidth={2.25} />
+                    </a>
+                  </motion.article>
+                </StaggerItem>
+              );
+            })}
+          </StaggerReveal>
+        </div>
+      </section>
+
+      {/* Progress Reporting */}
+      <section id="features" className="py-24">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             label="Progress Reporting"
@@ -164,272 +301,54 @@ export function HomePage() {
             sub="Capture what happened on site today, no end-of-day desk work required."
             wide
           />
-          <StaggerReveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <StaggerReveal className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <StaggerItem className="flex">
-              <Card
-                icon={FileText}
-                title="Automated Daily Reports"
-                description="Auto-populated reports that instantly pull in weather conditions and organize field-entered data. Signed at the end of the day and instantly ready to use."
-              />
-            </StaggerItem>
-            <StaggerItem className="flex">
-              <Card
-                icon={Camera}
-                title="Photo Logs"
-                description="Photos are automatically tagged with GPS coordinates, timestamps, and project details. Tag in real time for easy categorizing and send progress photos to clients with zero extra steps."
-              />
-            </StaggerItem>
-            <StaggerItem className="flex">
-              <Card
-                icon={MessageSquare}
-                title="Field Messaging"
-                description="Project-based threads that keep crew conversations tied to the work, not scattered across personal texts or buried email chains."
-              />
-            </StaggerItem>
-            <StaggerItem className="flex">
-              <Card
-                icon={CheckSquare}
-                title="Task Tracking"
-                description="Assign, track, and close out punch items from the field. Every task has an owner, a due date, and a photo trail attached."
-              />
-            </StaggerItem>
-          </StaggerReveal>
-        </div>
-      </section>
-
-      {/* Section 2: Production */}
-      <section id="how-it-works" className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading
-            label="Production"
-            title="Know your numbers, in real time"
-            sub="From material quantities to field metrics, never forget to track what matters."
-          />
-          <StaggerReveal className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
-            <StaggerItem className="flex">
-              <Card
-                icon={BarChart2}
-                title="Production Tracking"
-                description="Log field metrics in real time. Find production inconsistencies easily and keep your operation on track without the headache."
-              />
-            </StaggerItem>
-            <StaggerItem className="flex">
-              <Card
-                icon={Package}
-                title="Material Logs"
-                description="Easily track material usage in one location. Reduces paper, prevents lost data, and keeps inventory accurate across all sites."
-              />
-            </StaggerItem>
-            <StaggerItem className="flex">
-              <Card
-                icon={Wrench}
-                title="Equipment Logs"
-                description="Easily complete equipment daily checklists. Track usage and maintenance data in the field without spreadsheets or paper forms."
-              />
-            </StaggerItem>
-          </StaggerReveal>
-        </div>
-      </section>
-
-      {/* Section 3: Safety & Quality */}
-      <section className="bg-secondary/40 py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading
-            label="Safety & Compliance"
-            title="Safer crews, fewer surprises"
-            sub="Build a culture of safety from the field up with intuitive mobile tools your crews will actually use. Ditch paper safety meetings and track job site hazards in real time."
-          />
-          <StaggerReveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <StaggerItem className="flex">
-              <Card
-                icon={Shield}
-                title="Safety & Quality Management"
-                description="One place for tracking job hazards, audits, chemical logs, and quality inspections. Configurable workflows for your crews. Dashboards surface field trends before they become major incidents."
-                iconColor="text-amber-600"
-              />
-            </StaggerItem>
-            <StaggerItem className="flex">
-              <Card
-                icon={ClipboardList}
-                title="Checklists"
-                description="Pre-built checklists tailored to industry needs, or build your own. Completed lists sync to the office and update your records instantly."
-                iconColor="text-amber-600"
-              />
-            </StaggerItem>
-            <StaggerItem className="flex">
-              <Card
-                icon={Megaphone}
-                title="Safety Talks"
-                description="Deliver, sign off, and log safety meetings from the field. A complete compliance record is always one tap away, no paper needed."
-                iconColor="text-amber-600"
-              />
-            </StaggerItem>
-            <StaggerItem className="flex">
-              <Card
-                icon={AlertTriangle}
-                title="Incident Reporting"
-                description="Guided incident forms that capture what you need in the moment, with photos and witness notes, not three days later when details fade."
-                iconColor="text-amber-600"
-              />
-            </StaggerItem>
-            <StaggerItem className="flex">
-              <Card
-                icon={LineChart}
-                title="Safety Dashboards"
-                description="Easily track safety data for multiple sites at once. Portfolio-wide metrics, open observations by project, and trend analysis in one view."
-                iconColor="text-amber-600"
-              />
-            </StaggerItem>
-          </StaggerReveal>
-        </div>
-      </section>
-
-      {/* Section 4: Administrative Management */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading
-            label="Administrative Management"
-            title="Important documents never go missing"
-            sub="RFIs, submittals, and project documents, all in one place, easy to collect."
-            wide
-          />
-          <StaggerReveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <StaggerItem className="flex">
-              <Card
-                icon={HelpCircle}
-                title="RFIs"
-                description="Submit, track, and close RFIs without leaving the platform. Every one is logged, dated, and tied to the relevant drawing or spec."
-                badge="New"
-              />
-            </StaggerItem>
-            <StaggerItem className="flex">
-              <Card
-                icon={Folder}
-                title="Document Management"
-                description="Keep all project and crew documents accessible on any device, even offline in the field. Always current, never lost."
-              />
-            </StaggerItem>
-            <StaggerItem className="flex">
-              <Card
-                icon={FormInput}
-                title="Custom Forms"
-                description="Build any form your project or company needs. Easily create and have your crew fill them out in minutes. No printer needed."
-              />
-            </StaggerItem>
-            <StaggerItem className="flex">
-              <Card
-                icon={Cloud}
-                title="Cloud-first Storage"
-                description="Everything backed up automatically and synced across devices. Your data is safe regardless of what happens to hardware in the field."
-              />
-            </StaggerItem>
-          </StaggerReveal>
-        </div>
-      </section>
-
-      {/* Three pillars */}
-      <section className="bg-secondary/40 py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <StaggerReveal className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
-            {[
-              {
-                mark: "01",
-                title: "Field-first design",
-                body: "Built for someone wearing gloves in poor light, not for someone at a desk. Every interaction is thumb-friendly and fast.",
-              },
-              {
-                mark: "02",
-                title: "Office visibility",
-                body: "Real-time data flows from site to office without anyone making a phone call. Project managers see what matters, when it matters.",
-              },
-              {
-                mark: "03",
-                title: "Client Visibility",
-                body: "Total transparency without the administrative burden. Share data, photos, and next-treatment timelines your clients need, eliminating back-and-forth emails entirely.",
-              },
-            ].map((item) => (
-              <StaggerItem key={item.mark} className="px-10 py-10 first:pl-0 last:pr-0">
-                <p
-                  className="text-6xl md:text-7xl leading-none mb-6 select-none font-serif-heading font-bold text-primary/20"
-                >
-                  {item.mark}
+              <motion.article
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="flex flex-col w-full rounded-2xl bg-card ring-1 ring-border p-7 md:p-8 hover:ring-primary/25 hover:shadow-[0_12px_32px_rgba(15,23,42,0.06)] transition-all"
+              >
+                <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 text-primary mb-5">
+                  <FileText size={20} strokeWidth={1.75} />
+                </span>
+                <h3 className="text-xl text-navy font-bold tracking-tight mb-3">Daily Reports</h3>
+                <p className="text-[14px] text-muted-foreground leading-relaxed mb-5">
+                  Auto-populated reports that pull in weather conditions and organize field-entered data. Sign at the end of the day and share instantly with supervisors and clients.
                 </p>
-                <h3 className="text-foreground mb-2 font-serif-heading font-semibold">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.body}</p>
-              </StaggerItem>
-            ))}
-          </StaggerReveal>
-        </div>
-      </section>
-
-      {/* Integrations */}
-      <section id="integrations" className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <Reveal className="text-center mb-12">
-            <Label>Integrations</Label>
-            <h2
-              className="text-3xl text-foreground mb-2 font-serif-heading font-semibold"
-              
-            >
-              Plays well with others
-            </h2>
-            <p className="text-sm text-muted-foreground max-w-sm mx-auto">
-              Connect Utility Vision to the tools your enterprise already relies on.
-            </p>
-          </Reveal>
-          <StaggerReveal className="flex flex-wrap justify-center gap-3">
-            {integrations.map((i) => (
-              <StaggerItem key={i.name}>
-                <motion.div
-                  whileHover={{ y: -2, boxShadow: "0 4px 12px rgba(0,0,0,0.07)" }}
-                  transition={{ duration: 0.18 }}
-                  className="flex items-center gap-2 bg-card border border-border rounded-sm px-4 py-2.5 text-sm text-foreground cursor-default whitespace-nowrap"
-                >
-                  <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: i.color }} />
-                  {i.name}
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerReveal>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-24 bg-[#1C1008]">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <Reveal>
-            <h2
-              className="text-4xl md:text-5xl text-white mb-5 leading-tight font-serif-heading font-bold"
-              
-            >
-              Ready to have{" "}
-              <em className="text-primary" style={{ fontStyle: "italic" }}>
-                seamless field data tracking?
-              </em>
-            </h2>
-            <p className="text-white/50 text-sm mb-9 max-w-md mx-auto leading-relaxed">
-              Join over 14,000 job sites that have made the switch. Setup takes less than a day, and your crews will actually use it.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="bg-primary text-primary-foreground px-7 py-3 rounded-sm text-sm hover:bg-primary/90 transition-colors"
+                <ul className="space-y-2.5 mt-auto">
+                  {["Weather and site data auto-filled", "Digital crew signatures", "PDF ready the same day"].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-[13px] text-muted-foreground">
+                      <CircleCheck size={14} className="text-primary shrink-0" strokeWidth={2} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.article>
+            </StaggerItem>
+            <StaggerItem className="flex">
+              <motion.article
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="flex flex-col w-full rounded-2xl bg-card ring-1 ring-border p-7 md:p-8 hover:ring-primary/25 hover:shadow-[0_12px_32px_rgba(15,23,42,0.06)] transition-all"
               >
-                Start Free
-              </motion.a>
-              <motion.a
-                href="#"
-                whileHover={{ x: 2 }}
-                className="text-sm text-white/50 hover:text-white transition-colors"
-              >
-                Schedule a Demo
-              </motion.a>
-            </div>
-          </Reveal>
+                <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 text-primary mb-5">
+                  <Tags size={20} strokeWidth={1.75} />
+                </span>
+                <h3 className="text-xl text-navy font-bold tracking-tight mb-3">Photo Tags</h3>
+                <p className="text-[14px] text-muted-foreground leading-relaxed mb-5">
+                  Capture site photos with automatic GPS coordinates, timestamps, and project details. Tag in real time and send progress shots to clients with no extra steps.
+                </p>
+                <ul className="space-y-2.5 mt-auto">
+                  {["GPS and timestamp tagging", "Real-time categorization", "Instant client sharing"].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-[13px] text-muted-foreground">
+                      <CircleCheck size={14} className="text-primary shrink-0" strokeWidth={2} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.article>
+            </StaggerItem>
+          </StaggerReveal>
         </div>
       </section>
     </div>

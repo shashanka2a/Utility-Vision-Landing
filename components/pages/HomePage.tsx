@@ -106,23 +106,10 @@ export function HomePage() {
       {/* Hero — full viewport */}
       <section className="relative bg-dot-grid overflow-hidden min-h-[calc(100dvh-4rem)] flex flex-col">
         <div className="flex-1 flex flex-col items-center justify-center max-w-5xl mx-auto px-6 py-16 md:py-20 text-center w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 bg-primary/[0.08] ring-1 ring-primary/15 text-primary text-[11px] font-semibold px-3.5 py-1.5 rounded-full mb-8 uppercase tracking-[0.14em]"
-          >
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60" />
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary" />
-            </span>
-            Utility Field Intelligence Software
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="text-[2.35rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] text-navy max-w-4xl mx-auto leading-[1.05] mb-6 font-bold tracking-[-0.03em]"
           >
             Track Every Acre, Site &amp; Compliance Log in{" "}

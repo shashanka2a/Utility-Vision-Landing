@@ -13,26 +13,27 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://utilityvision.io"),
   title: {
-    default: "Utility Vision — Utility Field Intelligence Software",
-    template: "%s | Utility Vision",
+    default: "UtilityVision | Field Intelligence Software",
+    template: "%s | UtilityVision",
   },
   description:
-    "Track every acre, site & compliance log in real time. Field App, Management Dashboard, and Client Portal for utility field teams.",
+    "Field intelligence for solar asset operators, right-of-way contractors, and utility stakeholders. Log from the field, manage from the office, and share progress with clients in real time.",
   keywords: [
-    "utility field intelligence",
-    "vegetation management",
-    "field operations",
-    "utility software",
-    "crew management",
-    "progress reporting",
+    "UtilityVision",
+    "field intelligence software",
+    "solar vegetation management",
+    "right-of-way",
+    "field app",
+    "utility operations",
+    "client portal",
   ],
   authors: [{ name: "Wick'd Environmental Technologies, Inc." }],
   openGraph: {
-    title: "Utility Vision — Utility Field Intelligence Software",
+    title: "UtilityVision | Field Intelligence Software",
     description:
-      "Track every acre, site & compliance log in real time. Built for field operation teams managing utility assets.",
+      "One platform for crews, ops, and clients. Track acres, sites, and compliance from the field to the office in real time.",
     url: "https://utilityvision.io",
-    siteName: "Utility Vision",
+    siteName: "UtilityVision",
     locale: "en_US",
     type: "website",
     images: [
@@ -40,15 +41,15 @@ export const metadata: Metadata = {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Utility Vision — Utility Field Intelligence Software",
+        alt: "UtilityVision Field Intelligence Software",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Utility Vision — Utility Field Intelligence Software",
+    title: "UtilityVision | Field Intelligence Software",
     description:
-      "Track every acre, site & compliance log in real time.",
+      "One platform for crews, ops, and clients managing solar and utility field operations.",
     images: ["/og-image.svg"],
   },
   icons: {

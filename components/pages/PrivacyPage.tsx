@@ -393,7 +393,7 @@ function PolicySection({ section }: { section: Section }) {
             </p>
           </div>
           {section.table && index === 0 && <LegalBasisTable rows={section.table} />}
-        </div>
+      </div>
       ))}
     </div>
   );

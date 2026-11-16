@@ -14,7 +14,7 @@ export function Footer() {
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="https://app.utilityvision.app/"
+            href="https://uv-dashboard-demo.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-primary text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors shadow-[0_8px_24px_rgba(241,90,43,0.28)]"
@@ -22,7 +22,7 @@ export function Footer() {
             Start Free
           </a>
           <a
-            href="https://apps.apple.com/us/app/utilityvision/id6776099498"
+            href="https://uv-mobile.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-white/50 hover:text-white transition-colors font-medium"

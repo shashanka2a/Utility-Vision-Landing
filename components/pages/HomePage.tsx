@@ -28,7 +28,7 @@ const experiences = [
       },
     ],
     cta: "Launch Field App Demo",
-    href: "https://apps.apple.com/us/app/utilityvision/id6776099498",
+    href: "https://uv-mobile.vercel.app/",
     icon: Smartphone,
   },
   {
@@ -51,7 +51,7 @@ const experiences = [
       },
     ],
     cta: "Launch Management Dashboard Demo",
-    href: "https://app.utilityvision.app/",
+    href: "https://uv-dashboard-demo.vercel.app",
     icon: Monitor,
   },
   {
@@ -74,7 +74,7 @@ const experiences = [
       },
     ],
     cta: "Launch Client Portal Demo",
-    href: "https://client.utilityvision.app/",
+    href: "https://uv-client.vercel.app/",
     icon: ShieldCheck,
   },
 ];
@@ -133,7 +133,7 @@ export function HomePage() {
             className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2.5 mb-14"
           >
             <motion.a
-              href="https://apps.apple.com/us/app/utilityvision/id6776099498"
+              href="https://uv-mobile.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -1 }}
@@ -145,7 +145,7 @@ export function HomePage() {
               <ArrowRight size={14} strokeWidth={2.25} />
             </motion.a>
             <motion.a
-              href="https://app.utilityvision.app/"
+              href="https://uv-dashboard-demo.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -1 }}
@@ -156,7 +156,7 @@ export function HomePage() {
               Interactive Dashboard Demo
             </motion.a>
             <motion.a
-              href="https://client.utilityvision.app/"
+              href="https://uv-client.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -1 }}

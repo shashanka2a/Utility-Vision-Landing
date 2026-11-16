@@ -16,16 +16,16 @@ const experiences = [
       "Complete JSA Pre-Briefs with digital crew signatures, log daily acreage and chemicals, sync categorized field notes, and submit machine checklists from the field.",
     features: [
       {
-        title: "JSA & Digital Crew Signatures",
-        detail: "GPS lock, Mission Brief, Hazard Analysis, Nearest Hospital, and touchscreen crew sign-off.",
-      },
-      {
         title: "Daily Metrics, Notes & Chemicals",
         detail: "Submitted metrics cards, cloud-synced field notes, and Spraying or Wicking chemical inputs.",
       },
       {
         title: "Site Survey & Machine Checklists",
         detail: "End-of-day safety verification and skid steer or ASV fluid level inspections.",
+      },
+      {
+        title: "JSA & Digital Crew Signatures",
+        detail: "GPS lock, Mission Brief, Hazard Analysis, Nearest Hospital, and touchscreen crew sign-off.",
       },
     ],
     cta: "Launch Field App Demo",
@@ -34,11 +34,15 @@ const experiences = [
   },
   {
     id: "02",
-    label: "Operations Command",
+    label: "Operations Hub",
     title: "Management Dashboard",
     description:
       "Monitor real-time field submissions, audit chemical application totals, resolve open site observations, and review portfolio-wide KPIs.",
     features: [
+      {
+        title: "Real-Time Activity & Gallery",
+        detail: "Live stream of signed reports, weather stamps, and field photo evidence.",
+      },
       {
         title: "Executive Insights & Momentum",
         detail: "Track Total Logs, Key Metrics, Visual Checks, and Safety Issues at a glance.",
@@ -47,10 +51,6 @@ const experiences = [
         title: "Open Observations Workflow",
         detail: "Track Worsening or Unchanged site issues and mark them resolved in one click.",
       },
-      {
-        title: "Real-Time Activity & Gallery",
-        detail: "Live stream of signed reports, weather stamps, and field photo evidence.",
-      },
     ],
     cta: "Launch Management Dashboard Demo",
     href: "https://app.utilityvision.app/",
@@ -58,7 +58,7 @@ const experiences = [
   },
   {
     id: "03",
-    label: "Asset Owner Portal",
+    label: "Client Access",
     title: "The Client Portal",
     description:
       "Give utility and solar asset owners a dedicated portal to inspect KMZ panel mapping, track wicking, spraying, and mowing schedules, and monitor the Site Health Watchlist.",
@@ -149,27 +149,27 @@ export function HomePage() {
             className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2.5 mb-14"
           >
             <motion.a
-              href="https://app.utilityvision.app/"
+              href="https://apps.apple.com/us/app/utilityvision/id6776099498"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground h-11 px-5 rounded-full text-[13px] font-semibold hover:bg-primary/90 transition-colors shadow-[0_8px_28px_rgba(241,90,43,0.32)]"
             >
-              <Monitor size={15} strokeWidth={2} />
-              Interactive Dashboard Demo
+              <Smartphone size={15} strokeWidth={2} />
+              Try Field App Demo
               <ArrowRight size={14} strokeWidth={2.25} />
             </motion.a>
             <motion.a
-              href="https://apps.apple.com/us/app/utilityvision/id6776099498"
+              href="https://app.utilityvision.app/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 bg-navy text-white h-11 px-5 rounded-full text-[13px] font-semibold hover:bg-navy/90 transition-colors"
             >
-              <Smartphone size={15} strokeWidth={2} />
-              Try Field App Demo
+              <Monitor size={15} strokeWidth={2} />
+              Interactive Dashboard Demo
             </motion.a>
             <motion.a
               href="https://client.utilityvision.app/"
@@ -234,7 +234,7 @@ export function HomePage() {
               Three Integrated Experiences · One Unified Platform
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] text-navy font-bold tracking-[-0.03em] leading-[1.1] mb-4">
-              Built for Every Role in Utility Field Intelligence
+              One Platform for Crews, Ops, and Clients
             </h2>
             <p className="text-[15px] text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               Open any of the three interactive module previews below to try the live interface for field crews, operations managers, and utility clients.

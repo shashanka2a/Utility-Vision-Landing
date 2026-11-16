@@ -34,21 +34,24 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-2 md:grid-cols-4 gap-8">
         <div className="col-span-2 md:col-span-1">
-          <Link href="/" className="flex items-center gap-2.5 mb-3 group">
+          <Link href="/" className="flex items-center gap-2.5 group">
             <Image
               src="/icon.png"
-              alt="Utility Vision"
+              alt=""
               width={28}
               height={28}
-              className="rounded-md transition-transform duration-200 group-hover:scale-105"
+              className="rounded-[7px] transition-transform duration-200 group-hover:scale-105"
             />
-            <span className="text-white text-base font-semibold tracking-tight">
-              Utility Vision
+            <span className="flex flex-col items-start leading-none gap-1.5">
+              <span className="text-[15px] font-bold tracking-tight">
+                <span className="text-white">Utility</span>
+                <span className="text-primary">Vision</span>
+              </span>
+              <span className="text-[7.5px] uppercase tracking-[0.18em] text-white/45 font-medium pl-px">
+                Field Intelligence
+              </span>
             </span>
           </Link>
-          <p className="text-xs leading-relaxed max-w-[180px]">
-            Field operations platform for utility and environmental crews.
-          </p>
         </div>
 
         {[

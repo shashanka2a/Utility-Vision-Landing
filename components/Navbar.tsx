@@ -33,14 +33,20 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-2.5 group">
           <Image
             src="/icon.png"
-            alt="Utility Vision"
+            alt=""
             width={30}
             height={30}
             className="rounded-[7px] transition-transform duration-200 group-hover:scale-105"
             priority
           />
-          <span className="text-navy text-[15px] font-semibold tracking-tight">
-            Utility Vision
+          <span className="flex flex-col items-start leading-none gap-1.5">
+            <span className="text-[15px] font-bold tracking-tight">
+              <span className="text-navy">Utility</span>
+              <span className="text-primary">Vision</span>
+            </span>
+            <span className="text-[7.5px] uppercase tracking-[0.18em] text-muted-foreground font-medium pl-px">
+              Field Intelligence
+            </span>
           </span>
         </Link>
 

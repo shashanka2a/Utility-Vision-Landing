@@ -10,7 +10,6 @@ import { Reveal, StaggerReveal, StaggerItem } from "@/components/Reveal";
 const experiences = [
   {
     id: "01",
-    label: "Crew Mobile App",
     title: "The Field App",
     description:
       "Complete JSA Pre-Briefs with digital crew signatures, log daily acreage and chemicals, sync categorized field notes, and submit machine checklists from the field.",
@@ -34,7 +33,6 @@ const experiences = [
   },
   {
     id: "02",
-    label: "Operations Hub",
     title: "Management Dashboard",
     description:
       "Monitor real-time field submissions, audit chemical application totals, resolve open site observations, and review portfolio-wide KPIs.",
@@ -58,7 +56,6 @@ const experiences = [
   },
   {
     id: "03",
-    label: "Client Access",
     title: "The Client Portal",
     description:
       "Give utility and solar asset owners a dedicated portal to inspect KMZ panel mapping, track wicking, spraying, and mowing schedules, and monitor the Site Health Watchlist.",
@@ -238,16 +235,12 @@ export function HomePage() {
                     transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                     className="flex flex-col w-full rounded-2xl bg-card ring-1 ring-border p-6 md:p-7 hover:ring-primary/25 hover:shadow-[0_12px_32px_rgba(15,23,42,0.06)] transition-all"
                   >
-                    <div className="flex items-center justify-between mb-5">
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
-                        {mod.id} / {mod.label}
-                      </span>
-                      <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-primary/10 text-primary">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-primary/10 text-primary shrink-0">
                         <Icon size={17} strokeWidth={1.75} />
                       </span>
+                      <h3 className="text-xl text-navy font-bold tracking-tight">{mod.title}</h3>
                     </div>
-
-                    <h3 className="text-xl text-navy font-bold tracking-tight mb-3">{mod.title}</h3>
                     <p className="text-[13px] text-muted-foreground leading-relaxed mb-6">{mod.description}</p>
 
                     <ul className="space-y-4 mb-8 flex-1">

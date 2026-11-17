@@ -16,7 +16,7 @@ const experiences = [
     features: [
       {
         title: "Daily Metrics, Notes & Chemicals",
-        detail: "Submitted metrics cards, cloud-synced field notes, and Spraying or Wicking chemical inputs.",
+        detail: "Submitted metrics cards, cloud-synced field notes, and herbicide / chemical quantities inputs.",
       },
       {
         title: "Site Survey & Machine Checklists",
@@ -58,11 +58,11 @@ const experiences = [
     id: "03",
     title: "The Client Portal",
     description:
-      "Give utility and solar asset owners a dedicated portal to inspect KMZ panel mapping, track wicking, spraying, and mowing schedules, and monitor the Site Health Watchlist.",
+      "Give utility and solar asset owners a dedicated portal to inspect KMZ panel mapping, track operations schedules, and monitor the Site Health Watchlist.",
     features: [
       {
         title: "Overview & Maintenance Schedule",
-        detail: "Contract details, Last and Next Wicking, Spraying and Mowing timelines, and direct PM messaging.",
+        detail: "Contract details, operations timelines, and direct PM messaging.",
       },
       {
         title: "Interactive KMZ Project Map",
